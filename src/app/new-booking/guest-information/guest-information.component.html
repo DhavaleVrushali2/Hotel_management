@@ -1,0 +1,57 @@
+
+
+<div class="container-fluid">
+  <form  [formGroup]="guestDetails">
+    <div formArrayName="guestsArr">
+      <div class="row" *ngFor="let item of guestsArr.controls; let i=index">
+        <ng-container [formGroupName]="i">
+          <div class="col-md-6">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Guest Name</mat-label>
+              <input matInput formControlName="customerName">
+            </mat-form-field>
+          </div>
+          <div class="col-md-6" >
+            <label id="example-radio-group-label" class="mx-2">Gender :</label>
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+              <mat-radio-button value="male" class="mx-1">Male</mat-radio-button>
+              <mat-radio-button value="female" class="mx-1">Female</mat-radio-button>
+              <mat-radio-button value="Other" class="mx-1">Other</mat-radio-button>
+            
+            </mat-radio-group>
+          </div>
+        
+          <div class="col-md-6">
+          
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Age</mat-label>
+              <input matInput formControlName="age">
+            </mat-form-field>
+          </div>
+        </ng-container>
+        <div class="text-end">
+          <button (click)="addGuest()" *ngIf="(guestsArr.controls.length -1) == i " mat-fab color="primary" class="mx-2">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+          <button (click)="removeGuest(i)" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+    
+      
+    
+       
+      
+    
+    
+      </div>
+    </div>
+ 
+    <button (click)="saveForm()" >Save </button>
+  </form>
+ 
+</div>
+<div class="text-end">
+    <button mat-raised-button color="primary" mat-button matStepperPrevious class="primary">Back</button>
+    <button mat-raised-button color="primary" mat-button matStepperNext>Next</button>
+  </div>

@@ -1,0 +1,56 @@
+<!-- <button mat-raised-button (click)=" " id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button> -->
+  <mat-stepper [linear]="" #stepper>
+    <mat-step [stepControl]="parentForm" label="search-hotel">
+      <form [formGroup]="parentForm">
+        <ng-template matStepLabel>Search Hotel</ng-template>
+     <app-search-hotel></app-search-hotel>
+     </form>
+    </mat-step>
+    <mat-step [stepControl]="parentForm" label="Choose-hotel">
+      <form [formGroup]="parentForm">
+    <app-choose-hotel></app-choose-hotel>
+  </form>
+    </mat-step>
+    <mat-step [stepControl]="parentForm" label="Choose room">
+      <form [formGroup]="parentForm">
+        <app-choose-room></app-choose-room>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="parentForm" label="Personal Inforamtion">
+      <form [formGroup]="parentForm">
+      <app-personal-information></app-personal-information>
+      
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="parentForm" label="Guest Informatin">
+      <form [formGroup]="parentForm">
+       <app-guest-information></app-guest-information>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="parentForm" label="payment Details">
+      <form [formGroup]="parentForm">
+        <app-payment-details ></app-payment-details>
+      
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="parentForm" label="finish Booking">
+      <form [formGroup]="parentForm">
+        <app-finish-booking></app-finish-booking>
+       
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="bookHotel()">Save</button>
+        </div>
+        
+      </form>
+    </mat-step>
+    <!-- <mat-step>
+      <ng-template matStepLabel>Finish Booking</ng-template>
+      <p>You are now done.</p>
+  
+    </mat-step> -->
+  </mat-stepper>
+  
+  

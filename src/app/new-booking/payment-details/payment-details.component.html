@@ -1,0 +1,58 @@
+<h1>Payment Details</h1>
+<div class="container-fluid">
+  <form [formGroup]="paymentForm">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Name on the Card</mat-label>
+          <input matInput formControlName="nameOnTheCard">
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Debit /Credit Card Number</mat-label>
+          <input matInput formControlName="debitCardNumber">
+        </mat-form-field>
+      </div>
+  
+  <div class="col-md-3">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>select Country</mat-label>
+      <mat-select formControlName="expiryMonth">
+        <mat-option *ngFor="let month of monthList" [value]="month">
+          {{month}}
+  
+        </mat-option>
+      </mat-select>
+  
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>select year</mat-label>
+      <mat-select formControlName="expiryYear">
+        <mat-option *ngFor="let yr of year" [value]="yr">
+          {{yr}}
+  
+        </mat-option>
+      </mat-select>
+  
+    </mat-form-field>
+  </div>
+  <div class="col-md-6">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Security Code</mat-label>
+      <input matInput formControlName="securityCode">
+    </mat-form-field>
+  </div>
+
+  
+    </div>
+    <button (click)="saveForm()" >Save </button>
+  </form>
+</div>
+
+<div class="text-end">
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-raised-button color="primary">Confirm Payment</button>
+  </div>
